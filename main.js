@@ -1,0 +1,20 @@
+"use strict";
+Object.defineProperty(exports, "__esModule", { value: true });
+var Libro_1 = require("./models/Libro");
+var Revista_1 = require("./models/Revista");
+var Usuario_1 = require("./models/Usuario");
+var libro1 = new Libro_1.Libro(1, "Cien Años de Soledad", "Gabriel García Márquez", true, 300, "Novela");
+var libro2 = new Libro_1.Libro(2, "El Principito", "Antoine de Saint-Exupéry", true, 150, "Infantil");
+var revista1 = new Revista_1.Revista(5, "National Geographic", "Varios", true, 150);
+var usuario1 = new Usuario_1.Usuario(1, "María");
+usuario1.Prestar(libro1);
+usuario1.Prestar(revista1);
+usuario1.Prestar(libro2);
+usuario1.Prestar(libro1);
+usuario1.mostrarPrestados();
+usuario1.mostrarUltimaPrestacion();
+var materiales = [libro1, libro2, revista1];
+console.log("\n Demostración de polimorfismo:");
+materiales.forEach(function (m) {
+    console.log(m.mostrarInfo());
+});
